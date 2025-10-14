@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WeatherQuery {
+  id          String   @id @default(cuid())
+  location    String
+  locationLat Float?
+  locationLon Float?
+  country     String?
+  startDate   DateTime
+  endDate     DateTime
+  temperature Float?
+  feelsLike   Float?
+  tempMin     Float?
+  tempMax     Float?
+  description String?
+  humidity    Int?
+  pressure    Int?
+  clouds      Int?
+  windSpeed   Float?
+  icon        String?
+  forecastData Json?  // Store 7-day forecast as JSON
+  dailyWeatherData Json?  // Store weather data for each day in the date range
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([location])
+  @@index([createdAt])
+}

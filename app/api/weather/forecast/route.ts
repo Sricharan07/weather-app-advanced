@@ -80,10 +80,27 @@ export async function GET(request: NextRequest) {
       }
     })
 
+    // Get next 24 hours of hourly data (8 timestamps - 3-hour intervals)
+    const hourlyForecast = data.list.slice(0, 8).map((item: any) => {
+      const timestamp = new Date(item.dt * 1000)
+      return {
+        time: timestamp.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true }),
+        timestamp: item.dt,
+        temp: item.main.temp,
+        tempMin: item.main.temp_min,
+        tempMax: item.main.temp_max,
+        description: item.weather[0].description,
+        icon: item.weather[0].icon,
+        humidity: item.main.humidity,
+        windSpeed: item.wind.speed,
+      }
+    })
+
     return NextResponse.json({
       location: data.city.name,
       country: data.city.country,
       forecast,
+      hourlyForecast,
     })
   } catch (error: any) {
     if (error.response?.status === 404) {

@@ -15,37 +15,37 @@ Full-stack weather application with comprehensive CRUD operations, date range we
 ## Features
 
 ### Core Weather Features
-- ✅ Location search by city name, zip code, or GPS coordinates
-- ✅ Auto-complete city suggestions with coordinates
-- ✅ Current weather display with comprehensive metrics
-- ✅ Weather icons from OpenWeatherMap
-- ✅ 5-day detailed forecast
-- ✅ Date range weather data (all days between start and end dates)
-- ✅ Auto-detect current location using browser geolocation
-- ✅ Responsive design for all screen sizes
-- ✅ Real-time weather data updates
+- Location search by city name, zip code, or GPS coordinates
+- Auto-complete city suggestions with coordinates
+- Current weather display with comprehensive metrics
+- Weather icons from OpenWeatherMap
+- 5-day detailed forecast
+- Date range weather data (all days between start and end dates)
+- Auto-detect current location using browser geolocation
+- Responsive design for all screen sizes
+- Real-time weather data updates
 
 ### Database & CRUD Operations
-- ✅ Full CRUD operations with PostgreSQL database
-- ✅ Date range validation (start before end, max 1 year ahead)
-- ✅ Location validation with coordinate support
-- ✅ View all saved weather queries with full date range data
-- ✅ Update existing records with inline editing
-- ✅ Refetch weather data when dates are modified
-- ✅ Delete records with confirmation
-- ✅ Export individual queries in multiple formats (JSON, CSV, XML)
-- ✅ Bulk export of all queries
-- ✅ Search history with timestamps
-- ✅ Daily weather data storage for entire date range
-- ✅ Weather metrics persistence (temperature, humidity, wind, etc.)
+- Full CRUD operations with PostgreSQL database
+- Date range validation (start before end, max 1 year ahead)
+- Location validation with coordinate support
+- View all saved weather queries with full date range data
+- Update existing records with inline editing
+- Refetch weather data when dates are modified
+- Delete records with confirmation
+- Export individual queries in multiple formats (JSON, CSV, XML)
+- Bulk export of all queries
+- Search history with timestamps
+- Daily weather data storage for entire date range
+- Weather metrics persistence (temperature, humidity, wind, etc.)
 
 ### Advanced Features
-- ✅ **Daily Weather Tracking**: Stores weather data for each day in the selected date range
-- ✅ **Per-Query Downloads**: Download individual queries with all associated data
-- ✅ **Query Modification**: Edit location and dates, then refetch updated weather
-- ✅ **Comprehensive Data Export**: Each download includes current weather, forecast, and daily data
-- ✅ **Visual Data Indicators**: Color-coded display showing which dates have available data
-- ✅ **Auto-load on Page Load**: Automatically fetches weather for current location with default dates
+- **Daily Weather Tracking**: Stores weather data for each day in the selected date range
+- **Per-Query Downloads**: Download individual queries with all associated data
+- **Query Modification**: Edit location and dates, then refetch updated weather
+- **Comprehensive Data Export**: Each download includes current weather, forecast, and daily data
+- **Visual Data Indicators**: Color-coded display showing which dates have available data
+- **Auto-load on Page Load**: Automatically fetches weather for current location with default dates
 
 ## Prerequisites
 - Node.js 18+
@@ -327,18 +327,18 @@ Each downloaded query includes:
 ## Validation Features
 
 ### Date Range Validation
-- ✅ Start date must be before end date
-- ✅ Dates must be valid format
-- ✅ End date cannot be more than 1 year in future
-- ✅ Both dates required for database storage
-- ✅ Provides clear error messages
+- Start date must be before end date
+- Dates must be valid format
+- End date cannot be more than 1 year in future
+- Both dates required for database storage
+- Provides clear error messages
 
 ### Location Validation
-- ✅ Checks if location exists via API
-- ✅ Supports multiple input formats (city, zip, coordinates)
-- ✅ Returns 404 for invalid locations
-- ✅ Handles coordinate validation
-- ✅ Auto-complete prevents invalid entries
+- Checks if location exists via API
+- Supports multiple input formats (city, zip, coordinates)
+- Returns 404 for invalid locations
+- Handles coordinate validation
+- Auto-complete prevents invalid entries
 
 ## Error Handling
 - Network error handling with user-friendly messages
@@ -421,4 +421,4 @@ This project was created for the PM Accelerator AI Engineer Internship assessmen
 
 ---
 
-**Built with ❤️ for PM Accelerator**
+**Built for PM Accelerator**

@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import WeatherSearch from '@/components/WeatherSearch'
-import WeatherDisplay from '@/components/WeatherDisplay'
-import ForecastDisplay from '@/components/ForecastDisplay'
+import WeatherSidebar from '@/components/WeatherSidebar'
+import WeatherMainPanel from '@/components/WeatherMainPanel'
+import CityComparison from '@/components/CityComparison'
 import SavedQueries from '@/components/SavedQueries'
-import ExportData from '@/components/ExportData'
+import DeveloperInfo from '@/components/DeveloperInfo'
 
 export default function Home() {
   const [weatherData, setWeatherData] = useState<any>(null)
@@ -17,26 +17,45 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column - Weather Search and Display */}
-          <div className="lg:col-span-2 space-y-6">
-            <WeatherSearch
-              setWeatherData={setWeatherData}
-              setForecastData={setForecastData}
-              triggerRefresh={triggerRefresh}
-            />
+    <main className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600 relative overflow-hidden">
+      {/* Weather background effect */}
+      <div className="absolute inset-0 bg-[url('/weather-bg.jpg')] bg-cover bg-center opacity-20" />
 
-            {weatherData && <WeatherDisplay weatherData={weatherData} />}
+      {/* Main content */}
+      <div className="relative z-10 min-h-screen p-4 md:p-6 lg:p-8">
+        <div className="max-w-[1920px] mx-auto">
+          {/* Top section - Sidebar and Main Panel */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+            {/* Left Sidebar */}
+            <div className="lg:col-span-3">
+              <WeatherSidebar
+                weatherData={weatherData}
+                forecastData={forecastData}
+                setWeatherData={setWeatherData}
+                setForecastData={setForecastData}
+                triggerRefresh={triggerRefresh}
+              />
+            </div>
 
-            {forecastData && <ForecastDisplay forecastData={forecastData} />}
+            {/* Main Weather Panel */}
+            <div className="lg:col-span-9">
+              <WeatherMainPanel
+                weatherData={weatherData}
+                forecastData={forecastData}
+              />
+            </div>
           </div>
 
-          {/* Right Column - Saved Queries and Export */}
-          <div className="space-y-6">
-            <ExportData />
+          {/* Bottom section - City Comparison */}
+          <div className="mb-6">
+            <CityComparison />
+          </div>
+
+          {/* Developer Info Footer */}
+          <DeveloperInfo />
+
+          {/* Saved Queries - Hidden in modal or separate view */}
+          <div className="hidden">
             <SavedQueries refreshCounter={refreshCounter} />
           </div>
         </div>
